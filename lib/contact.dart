@@ -29,6 +29,19 @@ class ContactPage extends StatelessWidget {
             child: Text(
                 'Email address: ${contact.emails.isNotEmpty ? contact.emails.first.address : '(none)'}'),
           ),
+          Container(
+            padding: EdgeInsets.all(20),
+            alignment: Alignment.center,
+            child: ElevatedButton(
+              onPressed: () {
+                contact.delete();
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text("Contact deleted successfully!")));
+              },
+              child: Text("Delete Contact"),
+            ),
+          )
         ]),
       ));
 }

@@ -7,17 +7,16 @@
 
 ## Code Description
 
-Describe what your code does here
+A program that implements adding and removing contacts directly from the phone. Uses and requires access to phone's contacts to work.
 
 ## Things you did in the code
 
-Describe what you did here
+I've implemented the add and delete functionality using flutter_contacts. I've also implemented the camera feature for adding contact image.
 
 ## Challenges encountered
 
-Describe your challenges here
+The discussion about this topic was great and I have managed to implement the features needed without any challenges.
 
 ## References
 
 - flutter_contacts: https://pub.dev/packages/flutter_contacts
-- another link

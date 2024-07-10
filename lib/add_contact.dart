@@ -27,6 +27,7 @@ class _AddContactPageState extends State<AddContactPage> {
   PermissionStatus permissionStatus = PermissionStatus.denied;
   File? imageFile;
 
+  // initialize permission check
   @override
   void initState() {
     super.initState();
@@ -34,6 +35,7 @@ class _AddContactPageState extends State<AddContactPage> {
     _listenForPermissionStatus();
   }
 
+  // checks permission
   void _listenForPermissionStatus() async {
     final status = await permission.status;
     setState(() => permissionStatus = status);
@@ -48,11 +50,12 @@ class _AddContactPageState extends State<AddContactPage> {
         body: Form(
           key: _formKey,
           child: Container(
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.all(20),
             child: ListView(
               children: [
-                // for first name
+                // for adding contact image
                 uploadProfileImage(),
+                // for first name
                 TextFormField(
                   decoration: InputDecoration(labelText: "First Name"),
                   onChanged: ((String? value) {
@@ -129,6 +132,7 @@ class _AddContactPageState extends State<AddContactPage> {
         ));
   }
 
+  // for using camera to take contact image
   Widget uploadProfileImage() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -159,13 +163,12 @@ class _AddContactPageState extends State<AddContactPage> {
     );
   }
 
+  // asks for permission when called
   Future<void> requestPermission() async {
     final status = await permission.request();
 
     setState(() {
-      print(status);
       permissionStatus = status;
-      print(permissionStatus);
     });
   }
 }
