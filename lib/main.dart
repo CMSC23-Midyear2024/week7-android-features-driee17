@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'contact.dart';
+import 'add_contact.dart';
 
 void main() => runApp(const MyApp());
 
@@ -59,7 +60,15 @@ class _ContactListState extends State<ContactList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('My Contacts')), body: _body());
+      appBar: AppBar(title: const Text('My Contacts')),
+      body: _body(),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => AddContactPage()));
+          },
+          child: const Icon(Icons.contacts)),
+    );
   }
 
   Widget _body() {
